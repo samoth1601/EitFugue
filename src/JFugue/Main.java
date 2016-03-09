@@ -47,7 +47,7 @@ public class Main {
         patternString+=patternString;
 
         System.out.println(patternString);
-//test
+//test ss
         
                 //cdega
         Pattern p1 = new Pattern(patternString).setVoice(2);
