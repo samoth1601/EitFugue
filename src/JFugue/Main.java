@@ -47,6 +47,7 @@ public class Main {
 
         System.out.println(patternString);
 
+
         PossibleIntervalScales possibleScales = new PossibleIntervalScales();
 
         Pattern test = new Pattern(possibleScales.getScale("C",ScaleType.Major));
