@@ -5,33 +5,24 @@ package JFugue;
  */
 public class PossibleIntervalScales {
 
-    String[] numberNote={"C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"};
-    String[] wholeNotes={"C","D","E","F","G","A","B"};
+    String[] allNotes={"C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"};
 
-    //The natural major Scale (Ionian)
-    //W,W,H,W,W,W,H
-    //natural major scale in the key of C the fifth interval(note) is G. C,D,E,F,G,A,B,C
-    public Interval getMajorScale(String key){
-        String[] scaleProgression = {"W","W","H","W","W","W","H"};
-        double[] scaleProgressionDouble = {1,1,0.5,1,1,1,0.5};
-        Interval majorScale = new Interval();
-        //int[] progression = {}
-        ScaleList scaleList = new ScaleList();
+    public String getScale(String key, ScaleType scaleType){
+        int[] scaleProgression = Scales.getIntervals(scaleType);
 
-
-        double currentKey = findIndexOfKey(key);
-        for (Double delta: scaleProgressionDouble) {
-            //majorScale.addToInterval();
-
+        String scaleToReturn ="";
+        int currentKey = findIndexOfKey(key);
+        for (int delta: scaleProgression) {
+            System.out.println("CurrentKey "+ (currentKey));
+            scaleToReturn += allNotes[currentKey%12]+"s ";
+            currentKey=currentKey+delta;
         }
-
-
-        return majorScale;
+        return scaleToReturn;
     }
 
     private int findIndexOfKey(String key){
-        for (int i = 0; i < wholeNotes.length; i++) {
-            if (wholeNotes[i]==key){
+        for (int i = 0; i < allNotes.length; i++) {
+            if (allNotes[i]==key){
                 return i;
             }
         }
