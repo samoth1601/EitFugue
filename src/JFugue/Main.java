@@ -87,5 +87,6 @@ public class Main {
         //player.play(pattern.repeat(2), rhythm.getPattern().repeat(4));
         //player.play(p1.repeat(2),rhythm.getPattern().repeat(6), pattern.repeat(4));
         player.play(p1.setTempo(120).repeat(2),pattern,rhythm);
+
     }
 }
