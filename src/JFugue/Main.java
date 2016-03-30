@@ -86,7 +86,11 @@ public class Main {
 
         //player.play(pattern.repeat(2), rhythm.getPattern().repeat(4));
         //player.play(p1.repeat(2),rhythm.getPattern().repeat(6), pattern.repeat(4));
-        player.play(p1.setTempo(120).repeat(2),pattern,rhythm);
 
+        //player.play(p1.setTempo(80).repeat(2),pattern,rhythm);
+
+        Song yolo = new Song(Mood.SAD,80);
+        player.play(yolo.getMelodyBasis().setTempo(46).repeat(2),yolo.getSongProgression().repeat(2),yolo.getRhythm());
+        //player.play(yolo.getMelodyBasis().setTempo(50));
     }
 }

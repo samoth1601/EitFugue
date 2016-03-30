@@ -6,6 +6,8 @@ package JFugue;
 public class Scales{
     static int[] Major = {2,2,1,2,2,2,1};
     static int[] Minor = {2,1,2,2,1,2,2};
+    static int[] MajorPentatonic = {2, 2, 3, 2, 3};
+    static int[] MinorPentatonic = {3,2,2,3,2};
 
     private Scales() {
     }
@@ -16,6 +18,10 @@ public class Scales{
                 return Major;
             case Minor:
                return Minor;
+            case MajorPentatonic:
+                return MajorPentatonic;
+            case MinorPentatonic:
+                return MinorPentatonic;
             default : return null;//optional
         }
     }
