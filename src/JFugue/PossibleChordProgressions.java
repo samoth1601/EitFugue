@@ -14,7 +14,7 @@ public class PossibleChordProgressions {
     };
 
     
-    public static String getProgression(Mood mood){
+    public static String getChordProgression(Mood mood){
         Random rnd = new Random();
         String toReturn= "";
         //velger en progression basert på mood

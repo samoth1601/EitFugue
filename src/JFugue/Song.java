@@ -4,7 +4,7 @@ import org.jfugue.pattern.Pattern;
 import org.jfugue.rhythm.Rhythm;
 import org.jfugue.theory.ChordProgression;
 
-import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Thomas on 16.03.2016.
@@ -24,15 +24,19 @@ public class Song {
 
     public Song (Mood mood, int tempo){
         this.mood=mood;
+        Random rnd = new Random();
 
         //Ny sang
         //***********************
-        //******** KEY **********
+        //******* NY SANG *******
+        //***********************
+        //********* KEY *********
         //***********************
 
         //Må velge key, foreløpig random.
-        //todo skriv noe her som velger random key
-        key = "G";
+        String[] possibleKeys={"C","D","E","F","G","A","B"};
+
+        key = possibleKeys[rnd.nextInt(possibleKeys.length)];
         keyRaw =key;
 
         String majmin = "";
@@ -48,33 +52,27 @@ public class Song {
         }
 
         //setter key med minor eller major.
-        //todo fix this
-        //key = key+majmin;
         key = key+majmin;
-        System.out.println("HVA SKRIVER DEN?: " + majmin + " MOODEN ER: " +  mood);
+        System.out.println("Making new song in key: " + key + ". The mood of the song is: " +  mood);
 
         //************************************
         //******** CHORDPROGRESSION **********
         //************************************
 
         //lager en chordProgression
-        //todo gjør ikke noe med mood nå, gå inn i klassen og fix it yo.
-
-        progressionRoman = PossibleChordProgressions.getProgression(mood);
+        progressionRoman = PossibleChordProgressions.getChordProgression(mood);
         songProgression = new ChordProgression(progressionRoman).setKey(key);
         //ha som default at alle chords spilles to ganger, foreløpig.
         //songProgression.allChordsAs("$0 $0 $1 $1 $2 $2 $3 $3 ");
         songProgression.allChordsAs("$0 $1 $2 $3 ");
 
 
-        //todo set voices.
-
 
         //**************************
         //******** MELODY **********
         //**************************
 
-        //lager nye melodier
+        //lager nye melodier for vers og refreng
         System.out.println("lager ny melodi med key: "+keyRaw);
         melodyBasis = new Melody(mood,keyRaw,songProgression,progressionRoman,"basis");
         System.out.println("melodddey " + melodyBasis.getMelodyString());
@@ -91,9 +89,8 @@ public class Song {
         //songprogression - songprogressino
 
         BassLine = new ChordProgression(progressionRoman).setKey(keyRaw)
-
                 .allChordsAs("$0 $1 $2 $3")
-                //.eachChordAs("$0ia100 $0ia100")
+                .eachChordAs("$0")
                 .getPattern()
                 .setInstrument("ACOUSTIC_BASS")
                 .setVoice(7);
@@ -110,15 +107,6 @@ public class Song {
                 .addLayer("..S...S...S...S.")
                 .addLayer("````````````````")
                 .addLayer("...............+");
-
-
-        //***********************************
-        //******** BOLK-GENERERING **********
-        //***********************************
-
-
-        Bolk introBolk = new Bolk(songProgression,melodyBasis.getMelodyString(),rhythm,"intro");
-        
 
     }
 
@@ -147,9 +135,6 @@ public class Song {
 
     public Pattern getSongProgression() {
         Pattern pattern = songProgression
-                //.distribute("7%6")
-                //.allChordsAs("$0 $1 $2 $0 $1 $1 $0 $0 $2 $1 $0 $0")
-                //.eachChordAs("$0ia100 $0ia100")
                 .getPattern()
                 .setInstrument("SYNTH_BASS_2")
                 .setVoice(1);

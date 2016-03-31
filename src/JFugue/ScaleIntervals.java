@@ -3,13 +3,13 @@ package JFugue;
 /**
  * Created by Thomas on 02.03.2016.
  */
-public class Scales{
+public class ScaleIntervals {
     static int[] Major = {2,2,1,2,2,2,1};
     static int[] Minor = {2,1,2,2,1,2,2};
     static int[] MajorPentatonic = {2, 2, 3, 2, 3};
     static int[] MinorPentatonic = {3,2,2,3,2};
 
-    private Scales() {
+    private ScaleIntervals() {
     }
 
     public static int[] getIntervals(ScaleType scaleType){
