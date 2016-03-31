@@ -23,6 +23,7 @@ public class PossibleIntervalScales {
     }
 
     public ArrayList<String> getScaleArray(String key, ScaleType scaleType){
+        System.out.println("getScaleArraykey : " + key);
         int[] scaleProgression = Scales.getIntervals(scaleType);
 
         ArrayList<String> scaleArray = new ArrayList<String>();
@@ -37,9 +38,12 @@ public class PossibleIntervalScales {
 
 
     private int findIndexOfKey(String key){
+
         for (int i = 0; i < allNotes.length; i++) {
             if (allNotes[i]==key){
+
                 return i;
+
             }
         }
         return 0;

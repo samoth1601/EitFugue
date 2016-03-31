@@ -90,7 +90,7 @@ public class Main {
         //player.play(p1.setTempo(80).repeat(2),pattern,rhythm);
 
         Song yolo = new Song(Mood.SAD,80);
-        player.play(yolo.getMelodyBasis().setTempo(46).repeat(2),yolo.getSongProgression().repeat(2),yolo.getRhythm());
+        player.play(yolo.getMelodyBasis().setTempo(45).repeat(2),yolo.getMelodyRefrain().setTempo(80).repeat(2),yolo.getSongProgression().repeat(4),yolo.getRhythm(),yolo.getBassLine().repeat(4).setInstrument("TRUMPET"));
         //player.play(yolo.getMelodyBasis().setTempo(50));
     }
 }
