@@ -11,7 +11,7 @@ package JFugue; /**
     import org.jfugue.realtime.RealtimePlayer;
     import org.jfugue.theory.Note;
 
-    public class Main2 {
+    public class EksperimentMainForRealtime {
         public static void main(String[] args) throws MidiUnavailableException {
             RealtimePlayer player = new RealtimePlayer();
             Random random = new Random();

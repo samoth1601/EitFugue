@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /**
  * Created by Thomas on 02.03.2016.
  */
-public class PossibleIntervalScales {
+public class ScaleGenerator {
 
     String[] allNotes={"C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"};
 
     public String getScale(String key, ScaleType scaleType){
-        int[] scaleProgression = Scales.getIntervals(scaleType);
+        int[] scaleProgression = ScaleIntervals.getIntervals(scaleType);
 
         String scaleToReturn ="";
         int currentKey = findIndexOfKey(key);
@@ -22,8 +22,9 @@ public class PossibleIntervalScales {
         return scaleToReturn;
     }
 
-    public ArrayList<String> getScaleArray(String key, ScaleType scaleType){
-        int[] scaleProgression = Scales.getIntervals(scaleType);
+    public ArrayList<String> getScaleAsArray(String key, ScaleType scaleType){
+        System.out.println("getScaleArraykey : " + key);
+        int[] scaleProgression = ScaleIntervals.getIntervals(scaleType);
 
         ArrayList<String> scaleArray = new ArrayList<String>();
         int currentKey = findIndexOfKey(key);
@@ -37,9 +38,12 @@ public class PossibleIntervalScales {
 
 
     private int findIndexOfKey(String key){
+
         for (int i = 0; i < allNotes.length; i++) {
             if (allNotes[i]==key){
+
                 return i;
+
             }
         }
         return 0;
