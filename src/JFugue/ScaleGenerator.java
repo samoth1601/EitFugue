@@ -30,7 +30,7 @@ public class ScaleGenerator {
         int currentKey = findIndexOfKey(key);
         for (int delta: scaleProgression) {
             //System.out.println("CurrentKey "+ (currentKey));
-            scaleArray.add(allNotes[currentKey%12]+"s ");
+            scaleArray.add(allNotes[currentKey%12]);
             currentKey=currentKey+delta;
         }
         return scaleArray;

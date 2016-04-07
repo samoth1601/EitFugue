@@ -16,8 +16,11 @@ public class Song {
 
     ChordProgression songProgression;
     Melody melodyBasis;
+    Pattern melodyEmpty;
     Melody melodyRefrain;
+    Melody melodyRefrain2;
     Rhythm rhythm;
+    Rhythm rhythmEmpty;
     String progressionRoman;
     Pattern BassLine;
 
@@ -77,6 +80,14 @@ public class Song {
         melodyBasis = new Melody(mood,keyRaw,songProgression,progressionRoman,"basis");
         System.out.println("melodddey " + melodyBasis.getMelodyString());
         melodyRefrain = new Melody(mood,keyRaw,songProgression,progressionRoman,"refrain");
+        melodyRefrain2 = new Melody(mood,keyRaw,songProgression,progressionRoman,"refrain");
+
+        //lager tom melody for bruk.
+        String emptyPattern ="";
+        for (int i = 0; i < 15; i++) {
+            emptyPattern += "rs ";
+        }
+        melodyEmpty = new Pattern(emptyPattern);
 
 
         //**************************
@@ -88,11 +99,11 @@ public class Song {
 
         //songprogression - songprogressino
 
-        BassLine = new ChordProgression(progressionRoman).setKey(keyRaw)
+        BassLine = new ChordProgression(progressionRoman).setKey(keyRaw+="2")
                 .allChordsAs("$0 $1 $2 $3")
                 .eachChordAs("$0")
                 .getPattern()
-                .setInstrument("ACOUSTIC_BASS")
+                .setInstrument("SAWTOOTH")
                 .setVoice(7);
 
 
@@ -103,10 +114,17 @@ public class Song {
         //TODO lag rytmeklasse med predefinerte rytmer og hent herfra.
         //hardkodet rytme for now.
         rhythm = new Rhythm()
-                .addLayer("O..oO...O..oOO..")
-                .addLayer("..S...S...S...S.")
-                .addLayer("````````````````")
-                .addLayer("...............+");
+                .addLayer("O..oO...")
+                .addLayer("..S...S.")
+                .addLayer("````````")
+                .addLayer(".......+");
+
+
+        rhythmEmpty = new Rhythm()
+                .addLayer("........")
+                .addLayer("........")
+                .addLayer("........")
+                .addLayer("........");
 
     }
 
@@ -115,17 +133,29 @@ public class Song {
     //**************************
 
     public Rhythm getRhythm() {
-        return rhythm.setLength(3);
+        return rhythm.setLength(1);
+    }
+
+    public Rhythm getRhythmEmpty() {
+        return rhythmEmpty.setLength(1);
+    }
+
+    public Pattern getMelodyEmpty() {
+        // System.out.println("yolo" + melodyBasis.getMelodyString());
+        return ((melodyEmpty.setVoice(2).setInstrument("MUSIC_BOX")));
     }
 
     public Pattern getMelodyBasis() {
        // System.out.println("yolo" + melodyBasis.getMelodyString());
-        return (new Pattern(melodyBasis.getMelodyString()).setVoice(2).setInstrument("PIANO"));
+        return (new Pattern(melodyBasis.getMelodyString()).setVoice(2).setInstrument("MUSIC_BOX"));
 
     }
-
     public Pattern getMelodyRefrain() {
-        return (new Pattern(melodyRefrain.getMelodyString()).setVoice(2).setInstrument("PIANO"));
+        return (new Pattern(melodyRefrain.getMelodyString()).setVoice(2).setInstrument("MUSIC_BOX"));
+    }
+
+    public Pattern getMelodyRefrain2() {
+        return (new Pattern(melodyRefrain2.getMelodyString()).setVoice(2).setInstrument("MUSIC_BOX"));
     }
 
     public Pattern getBassLine() {
