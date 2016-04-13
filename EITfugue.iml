@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jfugue-5.0.51" level="project" />
+    <orderEntry type="library" name="gervill" level="project" />
   </component>
 </module>

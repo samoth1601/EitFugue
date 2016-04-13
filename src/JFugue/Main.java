@@ -5,10 +5,67 @@ package JFugue;
         import java.io.IOException;
         import java.util.Random;
 
-public class Main {
-    public static void main(String[] args) throws IOException, MidiUnavailableException {
 
-        String theMood = "excited";
+        // DISSE HAR TORD LAGT TIL 13.04.2016
+        import java.io.File;
+
+        import javax.sound.midi.Soundbank;
+        import javax.sound.midi.Synthesizer;
+        import javax.sound.midi.*;
+        import org.jfugue.player.SynthesizerManager;
+
+
+public class Main {
+    public static void main(String[] args) throws IOException, MidiUnavailableException, InvalidMidiDataException {
+
+
+
+        //SYNTH & SAMPLE CHANGE FROM DEFAULT
+
+        Soundbank soundbank;        //Declares new Soundbank instance
+        SynthesizerManager newSynth;//Declares new SynthesizerManager (jFugue class);
+
+        Synthesizer synth;          //Declares new Synthesizer instance
+
+        synth = MidiSystem.getSynthesizer();
+        synth.open();
+
+        try {
+            // Make sure gervill.jar is in your classpath
+
+
+            soundbank = MidiSystem.getSoundbank(new File("/Users/tordolsen/IdeaProjects/GervillTest/src/Compifont_01032016.sf2"));
+
+            //Print compatibility and if synth is open
+            //System.out.print(soundbank.getVersion() + "\n");
+            //System.out.print(soundbank.getVendor() + "\n");
+            //System.out.println(synth.isSoundbankSupported(soundbank));
+
+            synth.loadAllInstruments(soundbank);
+
+
+            newSynth = SynthesizerManager.getInstance();
+
+            newSynth.setSynthesizer(synth);
+
+        }
+        catch (MidiUnavailableException e) {
+            System.out.println("Catched: MidiUnavailableExeption " + e);
+        }
+        catch (InvalidMidiDataException e) {
+            System.out.println("Catched: InvalidMidiDataExeption " + e);
+        }
+        catch (IOException e) {
+            System.out.println("Catched: IOExeption " + e);
+        }
+
+
+
+
+
+
+        //String theMood = "excited";
+        String theMood = "happy";
         System.out.println(theMood);
 
         /******CREATE SONG******/
@@ -25,7 +82,7 @@ public class Main {
 
         }else if (theMood.equals("calm")){
             tempoSet = 40;
-            instrumentSet = "OCARINA";
+            instrumentSet = "STRING_ENSEMBLE_1";
             songMood = Mood.HAPPY;
 
         }else if (theMood.equals("happy")){
@@ -97,5 +154,6 @@ public class Main {
                 yolo.getBassLine().repeat(repeatIntro+repeatVerse*2+repeatRefrain*1)
         );
 
+        synth.close();
     }
 }
