@@ -78,7 +78,7 @@ public class Melody {
                     patternString += scale.get(rnd.nextInt(scale.size()))+"q ";
                     i++;
                     j-=1;
-                    continue;
+                    break;
                 }
 
 

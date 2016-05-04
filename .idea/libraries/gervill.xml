@@ -1,44 +1,44 @@
 <component name="libraryTable">
   <library name="gervill">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gervill" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/" />
+      <root url="jar://$USER_HOME$/Downloads/jfugue-5.0.5.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="file://$PROJECT_DIR$/../gervill/www/javadoc" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/www/javadoc" />
     </JAVADOC>
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../gervill/src" />
-      <root url="file://$PROJECT_DIR$/../gervill/src.demos" />
-      <root url="file://$PROJECT_DIR$/../gervill/src.floatwav" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/AudioFloatConverter" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/AudioFloatInputStream" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/DLSSoundbankReader" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelByteBuffer" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelByteBufferWavetable" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelDestination" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelIdentifier" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelPerformer" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelSource" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/ModelStandardTransform" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/RiffReaderWriter" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SF2SoundbankReader" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SimpleInstrument" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SimpleSoundbank" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftAudioBuffer" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftAudioSynthesizer" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftChannel" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftCubicResampler" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftLanczosResampler" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftLimiter" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftLinearResampler" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftLinearResampler2" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftPointResampler" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftProvider" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftReceiver" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftSincResampler" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftSynthesizer" />
-      <root url="file://$PROJECT_DIR$/../gervill/test/com/sun/media/sound/SoftTuning" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/src" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/src.demos" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/src.floatwav" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/AudioFloatConverter" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/AudioFloatInputStream" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/DLSSoundbankReader" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelByteBuffer" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelByteBufferWavetable" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelDestination" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelIdentifier" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelPerformer" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelSource" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/ModelStandardTransform" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/RiffReaderWriter" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SF2SoundbankReader" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SimpleInstrument" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SimpleSoundbank" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftAudioBuffer" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftAudioSynthesizer" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftChannel" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftCubicResampler" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftLanczosResampler" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftLimiter" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftLinearResampler" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftLinearResampler2" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftPointResampler" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftProvider" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftReceiver" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftSincResampler" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftSynthesizer" />
+      <root url="jar://$PROJECT_DIR$/../../gervill.zip!/gervill/test/com/sun/media/sound/SoftTuning" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/../gervill" recursive="false" />
   </library>
 </component>

@@ -78,7 +78,7 @@ public class Main {
 
 
         //String theMood = "excited";
-        String theMood = "sick";
+        String theMood = "happy";
         System.out.println(theMood);
 
         /******CREATE SONG******/
@@ -174,11 +174,11 @@ public class Main {
 
 
                 /***** BASS *****/
-                //yolo.getBassLine().repeat(repeatIntro+repeatVerse*1+repeatRefrain*2 + 1)
-                yolo.getBassLine().repeat(repeatIntro + repeatVerse),
-                yolo.getBassLine().repeat(repeatRefrain),
-                yolo.getBassLine().repeat(1),
-                yolo.getBassLine().repeat(repeatRefrain)
+                yolo.getBassLine().repeat(repeatIntro+repeatVerse*1+repeatRefrain*2 + 1)
+                //yolo.getBassLine().repeat(repeatIntro + repeatVerse),
+                //yolo.getBassLine().repeat(repeatRefrain),
+                //yolo.getBassLine().repeat(1),
+                //yolo.getBassLine().repeat(repeatRefrain)
 
 
 

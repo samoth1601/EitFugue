@@ -115,9 +115,6 @@ public class Song {
         //******** BASS **********
         //**************************
 
-        // return (new Pattern(melodyRefrain.getMelodyString()).setVoice(2).setInstrument("PIANO"));
-        //lager nye melodier
-
         //songprogression - songprogressino
         BassLineRefrain = new ChordProgression(progressionRomanRefrain).setKey(keyRaw += "2")
                 .allChordsAs("$0 $1 $2 $3")
@@ -126,7 +123,10 @@ public class Song {
                 .setInstrument("SAWTOOTH")
                 .setVoice(8);
 
-        BassLine = new ChordProgression(progressionRoman).setKey(keyRaw+="2")
+        System.out.println("KEEEEEY: "  + keyRaw);
+        System.out.println("Prog: " + progressionRoman);
+        //BassLine = new ChordProgression(progressionRoman).setKey(keyRaw += "2") //DETTE MÅ PÅ PLASS
+        BassLine = new ChordProgression(progressionRoman)
                 .allChordsAs("$0 $1 $2 $3")
                 .eachChordAs("$0")
                 .getPattern()
