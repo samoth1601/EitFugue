@@ -15,6 +15,7 @@ public class EksperimentMainForRealtime {
         RealtimePlayer player = new RealtimePlayer();
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+
         boolean quit = false;
         while (quit == false) {
             System.out.print("Enter a '+C' to start a note, "+

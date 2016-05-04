@@ -4,6 +4,8 @@ import org.jfugue.pattern.Pattern;
 import org.jfugue.rhythm.Rhythm;
 import org.jfugue.theory.ChordProgression;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -24,6 +26,9 @@ public class Song {
     String progressionRoman;
     Pattern BassLine;
 
+    Pattern BassLineRefrain;
+    String progressionRomanRefrain;
+    ChordProgression refrainProgression;
 
     public Song (Mood mood, int tempo){
         this.mood=mood;
@@ -63,11 +68,27 @@ public class Song {
         //************************************
 
         //lager en chordProgression
-        progressionRoman = PossibleChordProgressions.getChordProgression(mood);
+        int[] progression = {0,1,2,2};
+        progressionRoman = PossibleChordProgressions.getChordProgression2(mood,"",progression);
+
+        System.out.println("Chordprogression is: " + progressionRoman);
+
+
+        progressionRomanRefrain = PossibleChordProgressions.getChordProgression2(mood, "", progression);
+        refrainProgression = new ChordProgression(progressionRomanRefrain).setKey(key);
+
+        refrainProgression.allChordsAs("$0 $1 $2 $3");
+
+        //progressionRoman = PossibleChordProgressions.getChordProgression(mood);
         songProgression = new ChordProgression(progressionRoman).setKey(key);
+
+        System.out.println("Chords in progression: " + songProgression.getPattern().toString());
+
         //ha som default at alle chords spilles to ganger, foreløpig.
         //songProgression.allChordsAs("$0 $0 $1 $1 $2 $2 $3 $3 ");
         songProgression.allChordsAs("$0 $1 $2 $3 ");
+
+
 
 
 
@@ -98,6 +119,12 @@ public class Song {
         //lager nye melodier
 
         //songprogression - songprogressino
+        BassLineRefrain = new ChordProgression(progressionRomanRefrain).setKey(keyRaw += "2")
+                .allChordsAs("$0 $1 $2 $3")
+                .eachChordAs("$0")
+                .getPattern()
+                .setInstrument("SAWTOOTH")
+                .setVoice(8);
 
         BassLine = new ChordProgression(progressionRoman).setKey(keyRaw+="2")
                 .allChordsAs("$0 $1 $2 $3")
@@ -113,12 +140,19 @@ public class Song {
 
         //TODO lag rytmeklasse med predefinerte rytmer og hent herfra.
         //hardkodet rytme for now.
-        rhythm = new Rhythm()
-                .addLayer("O..oO...")
-                .addLayer("..S...S.")
-                .addLayer("````````")
-                .addLayer(".......+");
+        //Rhythm rhythm = new Rhythm();
+        RhythmGenerator generateRhythm = new RhythmGenerator(mood);
+        //rhythm2 = generateRhythm.getRhythm();
 
+
+        rhythm = generateRhythm.getRhythm();
+/*
+        rhythm = new Rhythm()
+                .addLayer("O..oO...O..oOO..")
+                .addLayer("..S...S...S...S.")
+                .addLayer("````````````````")
+                .addLayer("...............+");
+*/
 
         rhythmEmpty = new Rhythm()
                 .addLayer("........")
@@ -163,6 +197,11 @@ public class Song {
         return BassLine;
     }
 
+    public Pattern getBassLineRefrain() {
+        System.out.println(BassLineRefrain);
+        return BassLineRefrain;
+    }
+
     public Pattern getSongProgression() {
         Pattern pattern = songProgression
                 .getPattern()
@@ -171,4 +210,15 @@ public class Song {
 
         return pattern.setTempo(80);
     }
+
+    public Pattern getSongProgressionRefrain() {
+        Pattern pattern = refrainProgression
+                .getPattern()
+                .setInstrument("SYNTH_BASS_2")
+                .setVoice(1);
+
+        return pattern.setTempo(80);
+    }
+
 }
+

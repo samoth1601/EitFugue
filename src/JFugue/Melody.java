@@ -67,6 +67,7 @@ public class Melody {
                 //*********** RULE # 33 ***************
                 //legg til én 4/4 note
                 //Prosent sjanse for at denne regelen intreffer ved dette punktet i koden:
+
                 int rule33chance = 10;
                 if (section.equals("basis")){
                     rule33chance=5;
@@ -74,10 +75,12 @@ public class Melody {
                     rule33chance=30;
                 }if (chancePercent(rule33chance)) {
                     System.out.println("rule33 triggered");
-                    patternString += scale.get(rnd.nextInt(scale.size()))+" ";
+                    patternString += scale.get(rnd.nextInt(scale.size()))+"q ";
                     i++;
+                    j-=1;
                     continue;
                 }
+
 
 
                 //*********** RULE # 4 ***************
@@ -159,7 +162,7 @@ public class Melody {
             int factor = 1;
             if (R.equals("I") || R.equals("i")) {
                 romanInts[i] = 1-factor;
-            } else if (R.equals("ii") || R.equals("II")) {
+            } else if (R.equals("ii") || R.equals("II") || R.equals("iio")) {       // lagt til for iio i minor-proression
                 romanInts[i] = 2-factor;
             } else if (R.equals("iii") || R.equals("III")) {
                 romanInts[i] = 3-factor;
@@ -171,7 +174,12 @@ public class Melody {
                 romanInts[i] = 6-factor;
             } else if (R.equals("VII") || R.equals("vii")) {
                 romanInts[i] = 7-factor;
-            }else{
+            }
+            // LEGGER TIL FOR DIM7-akkord
+            else if (R.equals("viio")){
+                romanInts[i] = 7-factor;
+            }
+            else{
                 romanInts[i] = 1999;
             }
         }

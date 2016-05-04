@@ -1,10 +1,19 @@
 package JFugue;
 
+        import com.sun.media.sound.MidiUtils;
+        import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+        import org.jfugue.parser.ParserListener;
         import org.jfugue.player.Player;
         import javax.sound.midi.MidiUnavailableException;
         import java.io.IOException;
         import java.util.Random;
 
+
+        import java.util.*;
+        import java.io.*;
+
+        import org.jfugue.midi.*;
+        import org.staccato.*;
 
         // DISSE HAR TORD LAGT TIL 13.04.2016
         import java.io.File;
@@ -12,11 +21,15 @@ package JFugue;
         import javax.sound.midi.Soundbank;
         import javax.sound.midi.Synthesizer;
         import javax.sound.midi.*;
+
+        import org.jfugue.player.SequencerManager;
         import org.jfugue.player.SynthesizerManager;
 
 
 public class Main {
     public static void main(String[] args) throws IOException, MidiUnavailableException, InvalidMidiDataException {
+
+
 
 
 
@@ -65,7 +78,7 @@ public class Main {
 
 
         //String theMood = "excited";
-        String theMood = "happy";
+        String theMood = "sick";
         System.out.println(theMood);
 
         /******CREATE SONG******/
@@ -129,31 +142,57 @@ public class Main {
         System.out.println("refrainTimes:" + repeatRefrain);
 
         player.play(
+        //Sequence Test = player.getSequence(
 
 
 
                 /***** SONGPROGRESSION *****/
-                yolo.getSongProgression().repeat(10).setTempo(tempoSet),
+
+                //yolo.getSongProgression().repeat(repeatIntro+repeatVerse*1+repeatRefrain*2 + 1).setTempo(tempoSet),        //endre repeat til faktiske runder
+                yolo.getSongProgression().repeat(repeatIntro + repeatVerse).setTempo(tempoSet),
+                yolo.getSongProgressionRefrain().repeat(repeatRefrain).setTempo(tempoSet),
+                yolo.getSongProgression().repeat(1).setTempo(tempoSet),
+                yolo.getSongProgressionRefrain().repeat(repeatRefrain).setTempo(tempoSet),
+
+
 
                 /***** DRUMS *****/
                 yolo.getRhythmEmpty().getPattern().repeat(repeatIntro),
                 yolo.getRhythm().getPattern().repeat(repeatVerse),
                 yolo.getRhythm().getPattern().repeat(repeatRefrain),
                 yolo.getRhythmEmpty().getPattern(),
+                yolo.getRhythm().getPattern().repeat(repeatRefrain),
+
 
                 /***** MELODY *****/
                 yolo.getMelodyEmpty().repeat(repeatIntro),
                 yolo.getMelodyBasis().repeat(repeatVerse).setInstrument(instrumentSet),
                 yolo.getMelodyRefrain().repeat(repeatRefrain).setInstrument(instrumentSet),
                 yolo.getMelodyBasis().repeat(1).setInstrument(instrumentSet),
-                yolo.getRhythm().getPattern().repeat(repeatRefrain).setInstrument(instrumentSet),
+                //yolo.getRhythm().getPattern().repeat(repeatRefrain).setInstrument(instrumentSet),
                 yolo.getMelodyRefrain().repeat(repeatRefrain).setInstrument(instrumentSet),
 
 
                 /***** BASS *****/
-                yolo.getBassLine().repeat(repeatIntro+repeatVerse*2+repeatRefrain*1)
+                //yolo.getBassLine().repeat(repeatIntro+repeatVerse*1+repeatRefrain*2 + 1)
+                yolo.getBassLine().repeat(repeatIntro + repeatVerse),
+                yolo.getBassLine().repeat(repeatRefrain),
+                yolo.getBassLine().repeat(1),
+                yolo.getBassLine().repeat(repeatRefrain)
+
+
+
         );
 
-        synth.close();
+
+
+        //TRIED TO IMPLEMENT RENDERING FROM JFUGUE PLAYER TO .WAV
+        // - Unsuccesful, still uses default soundbank for writing to wavefile
+/*
+        Midi2WavRenderer TestRenderer = new Midi2WavRenderer();
+        TestRenderer.createWavFile(new File("/Users/tordolsen/IdeaProjects/GervillTest/src/Compifont_01032016.sf2"), patches ,Test, new File("WAVTEST2.wav"));
+
+*/
+        synth.close();  // CLEAN UP ON ISLE 4
     }
 }
